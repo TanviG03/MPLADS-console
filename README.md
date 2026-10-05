@@ -1,38 +1,38 @@
-# MPLADS AI Monitor
+# 🏛️ MPLADS Integrity Console
 
-## Start the backend
+A focused command centre for transparent, accountable project implementation, built for the **Smart India Hackathon**.
 
-From this folder, create or activate a Python environment and install the dependencies:
+---
 
-```powershell
+## 🚀 Overview
+The **MPLADS Integrity Console** is designed to monitor, score, and streamline constituency project data. It ensures transparency, tracks implementation metrics, and provides a clear workspace interface for evaluating project performance.
+
+---
+
+## 🛠️ Tech Stack
+* **Backend:** Python, FastAPI, Uvicorn
+* **Frontend:** HTML5, CSS3, JavaScript (`app.js`)
+* **Data Handling:** CSV-based structured data tracking (`mplads_scored_results-1.csv`)
+
+---
+
+## 🚀 Getting Started & Local Installation
+
+Follow these steps to set up and run the project locally on your machine.
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/TanviG03/MPLADS-console.git](https://github.com/TanviG03/MPLADS-console.git)
+cd MPLADS-console
 python -m venv .venv
 .venv\Scripts\Activate.ps1
+source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-Start FastAPI on port `8001`:
-
-```powershell
 uvicorn backend:app --reload --port 8001
-```
-
-The frontend is a static app. Serve it on another port so it can call the API:
-
-```powershell
 python -m http.server 5500
-```
-
-Open `http://localhost:5500/` in the browser.
-
-## API endpoints
-
-- `GET /api/mps` returns available MPs, project counts, and total records.
-- `GET /api/mps/{mp_id}/projects` returns projects for one MP.
-- `GET /api/projects/{project_id}` returns one complete project record.
-- `GET /api/projects/{project_id}/analysis-data` returns the fields used by the prototype AI analysis.
-
-The backend reads `mplads_scored_results-1.csv` from the same folder. It returns `404` for unknown MPs/projects and `503` when the CSV is missing or cannot be read. CORS is enabled for the local static frontend.
-
-## Frontend connection
-
-`app.js` calls the FastAPI API at `http://localhost:8001`. MP choices come from `/api/mps`; selecting an MP loads its projects from `/api/mps/{mp_id}/projects`. Project details use `/api/projects/{project_id}`, analysis uses `/analysis-data`, and the AI Assistant uses the selected MP project response as its context.
+### Final step to update it on GitHub:
+After saving the file cleanly in VS Code, update it live by running these commands in your terminal:
+```powershell
+git add README.md
+git commit -m "Fix formatting and structure in README.md"
+git push origin main
